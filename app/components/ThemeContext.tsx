@@ -12,17 +12,23 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Initialize theme from localStorage if available, otherwise use system preference
-  const [theme, setTheme] = useState<Theme>('light');
+  // Initialize theme with dark as default priority
+  const [theme, setTheme] = useState<Theme>('dark');
 
-  // Initialize theme on client-side
+  // Initialize theme on client-side with dark mode priority
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme') as Theme | null;
     
     if (storedTheme) {
       setTheme(storedTheme);
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
+    } else {
+      // Check system preference, but default to dark if no preference
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        setTheme('light');
+      } else {
+        // Default to dark mode (this covers both dark preference and no preference)
+        setTheme('dark');
+      }
     }
   }, []);
 

@@ -15,11 +15,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Chattrix",
-  description: "Create private chats, join groups, and connect instantly in real time.",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
