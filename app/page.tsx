@@ -8,7 +8,7 @@ export default function Home() {
       <Background />
       <div className="relative z-10">
         <ThemeSwitcher />
-        <h1 className="text-4xl font-bold text-center mt-10">Welcome to Chattrix</h1>
+        <h1 className="text-4xl font-bold text-center mt-10">Welcome to Quoro</h1>
       </div>
     </div>
   );
