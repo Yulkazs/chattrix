@@ -66,10 +66,15 @@ export function Header() {
               <a href="#" className="text-gray-200 text-sm hover:text-purple-300 transition">Features</a>
               <a href="#" className="text-gray-200 text-sm hover:text-purple-300 transition">Contact</a>
             </nav>
+            
+            {/* Theme Switcher - Desktop */}
+            <div className="ml-8">
+              <ThemeSwitcher />
+            </div>
           </div>
 
-          {/* Mobile Logo */}
-          <div className="lg:hidden">
+          {/* Mobile Logo and Theme Switcher */}
+          <div className="lg:hidden flex items-center gap-4">
             <h1 className="text-white font-semibold text-xl">Quoro</h1>
           </div>
 
@@ -105,8 +110,9 @@ export function Header() {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-            <div className="lg:hidden mobile-menu-container">
+          {/* Mobile Menu Button and Theme Switcher */}
+          <div className="lg:hidden flex items-center gap-3 mobile-menu-container">
+            <ThemeSwitcher />
             <button
               onClick={toggleMenu}
               className="relative p-2 text-white hover:text-purple-300 transition-colors duration-200 focus:outline-none"
